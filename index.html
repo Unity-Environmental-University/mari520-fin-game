@@ -263,7 +263,7 @@
 <header>
   <div>
     <h1>Dolphin Dorsal Fin Photo-ID</h1>
-    <p>MARI 520 — Marine Mammal Identification Activity</p>
+    <p>Marine Mammal Photo Identification Activity</p>
   </div>
 </header>
 
@@ -277,14 +277,14 @@
 </div>
 
 <div id="instructions-bar">
-  <strong>How to play:</strong> Drag the mystery fin onto its match in the catalogue — or click a catalogue fin to attempt a match.
-  Five catalogue fins are decoys. <strong>You only get one attempt per round</strong> — a wrong answer ends the round. Look closely before you commit!
+  <strong>How to play:</strong> Drag the mystery fin onto its match in the catalogue, or click a catalogue fin to attempt a match.
+  Five catalogue fins are decoys. <strong>You only get one attempt per round.</strong> A wrong answer ends the round. Look closely before you commit!
   <em>All photos taken under NOAA-NMFS permit #21938-01 and DISL-NMFS permit #23772.</em>
 </div>
 
 <div id="game-area">
   <div id="left-col">
-    <div class="panel-label">Mystery fin — identify this individual</div>
+    <div class="panel-label">Mystery fin. Identify this individual</div>
     <div id="mystery-fin" draggable="true">
       <img id="mystery-img" src="" alt="Mystery dorsal fin to identify" />
       <div class="mystery-label" id="mystery-label">Loading…</div>
@@ -293,7 +293,7 @@
     <div id="feedback" role="status" aria-live="polite"></div>
   </div>
   <div id="right-col">
-    <div class="panel-label">Fin catalogue — one fin matches; five are decoys</div>
+    <div class="panel-label">Fin catalogue: One fin matches; five are decoys</div>
     <div id="catalogue" role="list" aria-label="Catalogue fins"></div>
   </div>
 </div>
@@ -443,7 +443,7 @@ function attempt(el, item) {
     el.classList.remove('wrong-flash');
     void el.offsetWidth;
     el.classList.add('wrong-flash');
-    setFeedback('Incorrect — moving to next round.', 'bad');
+    setFeedback('Incorrect. Moving to next round.', 'bad');
     setTimeout(() => showRoundModal(false), 1200);
   }
 }
@@ -466,12 +466,12 @@ function showRoundModal(correct) {
   } else if (correct) {
     icon = '🐬';
     title = 'Correct!';
-    msg = 'Good eye — you matched that fin.';
+    msg = 'Good eye! You matched that fin.';
     sub = 'Study the notch patterns and trailing edge carefully on the next one.';
   } else {
     icon = '❌';
     title = 'Incorrect';
-    msg = 'That wasn\'t the right match — on to the next fin.';
+    msg = 'That wasn\'t the right match. On to the next fin.';
     sub = 'Look carefully at the trailing edge shape, notches, and any distinctive scars before committing.';
   }
 
@@ -500,10 +500,10 @@ function showRoundModal(correct) {
 
 function getFinalComment() {
   const pct = Math.round((G.score / ROUNDS) * 100);
-  if (pct === 100) return 'Perfect score — outstanding fin ID skills!';
+  if (pct === 100) return 'Perfect score! Outstanding fin ID skills!';
   if (pct >= 71) return 'Strong performance. You have a solid grasp of fin identification.';
   if (pct >= 43) return 'Good effort. Focus on trailing edge notches and tip shape.';
-  return 'Keep practicing — with time those notches and scars become much easier to read.';
+  return 'Keep practicing. With time those notches and scars become much easier to read.';
 }
 
 function showOverlay() {
